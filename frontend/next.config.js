@@ -5,3 +5,5 @@ module.exports = {
     PRODUCTION: false,
   }
 }
+const withCSS = require('@zeit/next-css')
+module.exports = withCSS({/* my next config */})

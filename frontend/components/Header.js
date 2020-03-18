@@ -1,5 +1,7 @@
 import {useState} from 'react';
 import Link from 'next/link'
+import {signout, isAuth} from '../actions/auth'
+import Router from 'next/router'
 
 const Header = () => {
   return(
@@ -19,11 +21,19 @@ const Header = () => {
                 <a class="nav-link">Sign Up</a>
               </li>
             </ Link>
+
             <Link href="/signin">
               <li class="nav-item active">
                 <a class="nav-link">Sign In</a>
               </li>
             </ Link>
+
+            {isAuth() && (
+              <li onClick={() => signout(() => Router.replace(`/signin`))} class="nav-item active">
+                <a class="nav-link">Sign Out</a>
+              </li>
+            )}
+
           </ul>
         </div>
       </div>
