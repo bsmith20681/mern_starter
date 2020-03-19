@@ -16,17 +16,22 @@ const Header = () => {
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
-            <Link href="/signup">
-              <li class="nav-item active">
-                <a class="nav-link">Sign Up</a>
-              </li>
-            </ Link>
 
-            <Link href="/signin">
-              <li class="nav-item active">
-                <a class="nav-link">Sign In</a>
-              </li>
-            </ Link>
+            {!isAuth() && (
+              <React.Fragment>
+                <Link href="/signup">
+                  <li class="nav-item active">
+                    <a class="nav-link">Sign Up</a>
+                  </li>
+                </ Link>
+
+                <Link href="/signin">
+                  <li class="nav-item active">
+                    <a class="nav-link">Sign In</a>
+                  </li>
+                </ Link>
+              </React.Fragment>
+            )}
 
             {isAuth() && (
               <li onClick={() => signout(() => Router.replace(`/signin`))} class="nav-item active">

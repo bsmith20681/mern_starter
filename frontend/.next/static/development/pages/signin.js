@@ -209,49 +209,55 @@ var Header = function Header() {
       lineNumber: 18
     },
     __self: this
+  }, !Object(_actions_auth__WEBPACK_IMPORTED_MODULE_2__["isAuth"])() && __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: this
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/signup",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 22
     },
     __self: this
   }, __jsx("li", {
     "class": "nav-item active",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 23
     },
     __self: this
   }, __jsx("a", {
     "class": "nav-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 24
     },
     __self: this
   }, "Sign Up"))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/signin",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 28
     },
     __self: this
   }, __jsx("li", {
     "class": "nav-item active",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 29
     },
     __self: this
   }, __jsx("a", {
     "class": "nav-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 30
     },
     __self: this
-  }, "Sign In"))), Object(_actions_auth__WEBPACK_IMPORTED_MODULE_2__["isAuth"])() && __jsx("li", {
+  }, "Sign In")))), Object(_actions_auth__WEBPACK_IMPORTED_MODULE_2__["isAuth"])() && __jsx("li", {
     onClick: function onClick() {
       return Object(_actions_auth__WEBPACK_IMPORTED_MODULE_2__["signout"])(function () {
         return next_router__WEBPACK_IMPORTED_MODULE_3___default.a.replace("/signin");
@@ -260,14 +266,14 @@ var Header = function Header() {
     "class": "nav-item active",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 37
     },
     __self: this
   }, __jsx("a", {
     "class": "nav-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 38
     },
     __self: this
   }, "Sign Out"))))));
@@ -370,6 +376,9 @@ var SigninComponent = function SigninComponent() {
       loading = values.loading,
       message = values.message,
       showForm = values.showForm;
+  Object(react__WEBPACK_IMPORTED_MODULE_1__["useEffect"])(function () {
+    Object(_actions_auth__WEBPACK_IMPORTED_MODULE_2__["isAuth"])() && next_router__WEBPACK_IMPORTED_MODULE_3___default.a.push("/");
+  }, []);
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault(); // console.table({ name, email, password, error, loading, message, showForm });
@@ -383,15 +392,14 @@ var SigninComponent = function SigninComponent() {
       password: password
     };
     Object(_actions_auth__WEBPACK_IMPORTED_MODULE_2__["signin"])(user).then(function (data) {
+      console.log(data);
+
       if (data.error) {
         setValues(_objectSpread({}, values, {
           error: data.error,
           loading: false
         }));
       } else {
-        // save user token to cookie
-        // save user info to localstorage
-        // authenticate user
         Object(_actions_auth__WEBPACK_IMPORTED_MODULE_2__["authenticate"])(data, function () {
           next_router__WEBPACK_IMPORTED_MODULE_3___default.a.push("/");
         });
@@ -412,7 +420,7 @@ var SigninComponent = function SigninComponent() {
       className: "alert alert-info",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 44
       },
       __self: this
     }, "Loading...") : '';
@@ -423,7 +431,7 @@ var SigninComponent = function SigninComponent() {
       className: "alert alert-danger",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 45
       },
       __self: this
     }, error) : '';
@@ -434,7 +442,7 @@ var SigninComponent = function SigninComponent() {
       className: "alert alert-info",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 43
+        lineNumber: 46
       },
       __self: this
     }, message) : '';
@@ -445,21 +453,21 @@ var SigninComponent = function SigninComponent() {
       onSubmit: handleSubmit,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 47
+        lineNumber: 50
       },
       __self: this
     }, __jsx("div", {
       "class": "form-group",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 48
+        lineNumber: 51
       },
       __self: this
     }, __jsx("label", {
       "for": "exampleInputEmail1",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 49
+        lineNumber: 52
       },
       __self: this
     }, "Email address"), __jsx("input", {
@@ -471,7 +479,7 @@ var SigninComponent = function SigninComponent() {
       "aria-describedby": "emailHelp",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 50
+        lineNumber: 53
       },
       __self: this
     }), __jsx("small", {
@@ -479,21 +487,21 @@ var SigninComponent = function SigninComponent() {
       "class": "form-text text-muted",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
+        lineNumber: 54
       },
       __self: this
     }, "We'll never share your email with anyone else.")), __jsx("div", {
       "class": "form-group",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53
+        lineNumber: 56
       },
       __self: this
     }, __jsx("label", {
       "for": "exampleInputPassword1",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 54
+        lineNumber: 57
       },
       __self: this
     }, "Password"), __jsx("input", {
@@ -504,7 +512,7 @@ var SigninComponent = function SigninComponent() {
       id: "exampleInputPassword1",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 55
+        lineNumber: 58
       },
       __self: this
     })), __jsx("button", {
@@ -512,7 +520,7 @@ var SigninComponent = function SigninComponent() {
       "class": "btn btn-primary",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 57
+        lineNumber: 60
       },
       __self: this
     }, "Sign In"));
@@ -522,28 +530,28 @@ var SigninComponent = function SigninComponent() {
     "class": "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 63
+      lineNumber: 66
     },
     __self: this
   }, __jsx("div", {
     "class": "row",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 64
+      lineNumber: 67
     },
     __self: this
   }, __jsx("div", {
     "class": "col-lg-12 col-md-12 col-sm-12",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 65
+      lineNumber: 68
     },
     __self: this
   }, __jsx("h1", {
     "class": "text-center",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 66
+      lineNumber: 69
     },
     __self: this
   }, "Sign In"), showError(), showLoading(), showMessage(), showForm && signinForm())));
@@ -571,7 +579,7 @@ __webpack_require__.r(__webpack_exports__);
 var _getConfig = next_config__WEBPACK_IMPORTED_MODULE_0___default()(),
     publicRuntimeConfig = _getConfig.publicRuntimeConfig;
 
-var API = publicRuntimeConfig.PRODUCTION ? publicRuntimeConfig.API_PRODUCTION : publicRuntimeConfig.API_DEVELOPMENT;
+var API = publicRuntimeConfig.PRODUCTION ? 'https://seoblog.com' : 'http://localhost:8000/api';
 var APP_NAME = publicRuntimeConfig.APP_NAME;
 
 /***/ }),
@@ -5152,7 +5160,7 @@ var Signin = function Signin() {
 
 /***/ }),
 
-/***/ 3:
+/***/ 4:
 /*!*************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2Fsignin&absolutePagePath=D%3A%5Cmern_starter%5Cfrontend%5Cpages%5Csignin.js ***!
   \*************************************************************************************************************************/
@@ -5175,5 +5183,5 @@ module.exports = dll_0fb095e325d7ebf261c3;
 
 /***/ })
 
-},[[3,"static/runtime/webpack.js","styles"]]]);
+},[[4,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=signin.js.map

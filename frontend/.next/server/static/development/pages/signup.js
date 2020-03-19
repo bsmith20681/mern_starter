@@ -272,61 +272,67 @@ const Header = () => {
       lineNumber: 18
     },
     __self: undefined
+  }, !Object(_actions_auth__WEBPACK_IMPORTED_MODULE_2__["isAuth"])() && __jsx(react__WEBPACK_IMPORTED_MODULE_0___default.a.Fragment, {
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 21
+    },
+    __self: undefined
   }, __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/signup",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 19
+      lineNumber: 22
     },
     __self: undefined
   }, __jsx("li", {
     class: "nav-item active",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 20
+      lineNumber: 23
     },
     __self: undefined
   }, __jsx("a", {
     class: "nav-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 21
+      lineNumber: 24
     },
     __self: undefined
   }, "Sign Up"))), __jsx(next_link__WEBPACK_IMPORTED_MODULE_1___default.a, {
     href: "/signin",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 25
+      lineNumber: 28
     },
     __self: undefined
   }, __jsx("li", {
     class: "nav-item active",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 26
+      lineNumber: 29
     },
     __self: undefined
   }, __jsx("a", {
     class: "nav-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 27
+      lineNumber: 30
     },
     __self: undefined
-  }, "Sign In"))), Object(_actions_auth__WEBPACK_IMPORTED_MODULE_2__["isAuth"])() && __jsx("li", {
+  }, "Sign In")))), Object(_actions_auth__WEBPACK_IMPORTED_MODULE_2__["isAuth"])() && __jsx("li", {
     onClick: () => Object(_actions_auth__WEBPACK_IMPORTED_MODULE_2__["signout"])(() => next_router__WEBPACK_IMPORTED_MODULE_3___default.a.replace(`/signin`)),
     class: "nav-item active",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 32
+      lineNumber: 37
     },
     __self: undefined
   }, __jsx("a", {
     class: "nav-link",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 33
+      lineNumber: 38
     },
     __self: undefined
   }, "Sign Out"))))));
@@ -396,6 +402,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _actions_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../actions/auth */ "./actions/auth.js");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! next/router */ "next/router");
+/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_2__);
 var _jsxFileName = "D:\\mern_starter\\frontend\\components\\auth\\SignupComponent.js";
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
@@ -405,6 +413,7 @@ function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (O
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -431,6 +440,9 @@ const SignupComponent = () => {
     message,
     showForm
   } = values;
+  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {
+    Object(_actions_auth__WEBPACK_IMPORTED_MODULE_1__["isAuth"])() && next_router__WEBPACK_IMPORTED_MODULE_2___default.a.push(`/`);
+  }, []);
 
   const handleSubmit = e => {
     e.preventDefault(); // console.table({ name, email, password, error, loading, message, showForm });
@@ -445,6 +457,8 @@ const SignupComponent = () => {
       password
     };
     Object(_actions_auth__WEBPACK_IMPORTED_MODULE_1__["signup"])(user).then(data => {
+      console.log(data);
+
       if (data.error) {
         setValues(_objectSpread({}, values, {
           error: data.error,
@@ -475,7 +489,7 @@ const SignupComponent = () => {
     className: "alert alert-info",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 45
+      lineNumber: 51
     },
     __self: undefined
   }, "Loading...") : '';
@@ -484,7 +498,7 @@ const SignupComponent = () => {
     className: "alert alert-danger",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 46
+      lineNumber: 52
     },
     __self: undefined
   }, error) : '';
@@ -493,7 +507,7 @@ const SignupComponent = () => {
     className: "alert alert-info",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 47
+      lineNumber: 53
     },
     __self: undefined
   }, message) : '';
@@ -503,21 +517,21 @@ const SignupComponent = () => {
       onSubmit: handleSubmit,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 51
+        lineNumber: 57
       },
       __self: undefined
     }, __jsx("div", {
       class: "form-group",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 52
+        lineNumber: 58
       },
       __self: undefined
     }, __jsx("label", {
       for: "exampleInputEmail1",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 53
+        lineNumber: 59
       },
       __self: undefined
     }, "Name"), __jsx("input", {
@@ -527,21 +541,21 @@ const SignupComponent = () => {
       class: "form-control",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 54
+        lineNumber: 60
       },
       __self: undefined
     })), __jsx("div", {
       class: "form-group",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 56
+        lineNumber: 62
       },
       __self: undefined
     }, __jsx("label", {
       for: "exampleInputEmail1",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 57
+        lineNumber: 63
       },
       __self: undefined
     }, "Email address"), __jsx("input", {
@@ -553,7 +567,7 @@ const SignupComponent = () => {
       "aria-describedby": "emailHelp",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 58
+        lineNumber: 64
       },
       __self: undefined
     }), __jsx("small", {
@@ -561,21 +575,21 @@ const SignupComponent = () => {
       class: "form-text text-muted",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 59
+        lineNumber: 65
       },
       __self: undefined
     }, "We'll never share your email with anyone else.")), __jsx("div", {
       class: "form-group",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 61
+        lineNumber: 67
       },
       __self: undefined
     }, __jsx("label", {
       for: "exampleInputPassword1",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 62
+        lineNumber: 68
       },
       __self: undefined
     }, "Password"), __jsx("input", {
@@ -586,7 +600,7 @@ const SignupComponent = () => {
       id: "exampleInputPassword1",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 63
+        lineNumber: 69
       },
       __self: undefined
     })), __jsx("button", {
@@ -594,7 +608,7 @@ const SignupComponent = () => {
       class: "btn btn-primary",
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 65
+        lineNumber: 71
       },
       __self: undefined
     }, "Sign Up"));
@@ -604,28 +618,28 @@ const SignupComponent = () => {
     class: "container",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 71
+      lineNumber: 77
     },
     __self: undefined
   }, __jsx("div", {
     class: "row",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 72
+      lineNumber: 78
     },
     __self: undefined
   }, __jsx("div", {
     class: "col-lg-12 col-md-12 col-sm-12",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 73
+      lineNumber: 79
     },
     __self: undefined
   }, __jsx("h1", {
     class: "text-center",
     __source: {
       fileName: _jsxFileName,
-      lineNumber: 74
+      lineNumber: 80
     },
     __self: undefined
   }, "Sign Up"), showError(), showLoading(), showMessage(), showForm && signupForm())));
@@ -652,7 +666,7 @@ __webpack_require__.r(__webpack_exports__);
 const {
   publicRuntimeConfig
 } = next_config__WEBPACK_IMPORTED_MODULE_0___default()();
-const API = publicRuntimeConfig.PRODUCTION ? publicRuntimeConfig.API_PRODUCTION : publicRuntimeConfig.API_DEVELOPMENT;
+const API = publicRuntimeConfig.PRODUCTION ? 'https://seoblog.com' : 'http://localhost:8000/api';
 const APP_NAME = publicRuntimeConfig.APP_NAME;
 
 /***/ }),

@@ -17,6 +17,9 @@ const app = express();
 mongoose
   .connect(process.env.DATABASE, { useNewUrlParser: true, useCreateIndex: true, useFindAndModify: false})
   .then(() => console.log("🎬 Database is online!"))
+  .catch(err => {
+    console.log(err);
+  })
 
 // middlewares
 app.use(morgan('dev'));
